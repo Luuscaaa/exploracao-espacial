@@ -5,4 +5,5 @@ export interface Missao {
   duracao_anos: number;
   tripulantes: number;
   tecnologias: string[];
+  image?: string;
 }

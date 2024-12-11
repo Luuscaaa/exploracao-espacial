@@ -1,25 +1,16 @@
-import express, { Application } from 'express';
-import cors from 'cors';  // Se você precisar de CORS
-import missaoRoutes from './routes/missaoRoutes';
-import usuarioRoutes from './routes/usuarioRoutes';
+import express from "express";
+import cors from "cors";
+import missoesRoutes from "./routes/missaoRoutes";
 
-const app: Application = express();
+const app = express();
 
-// Middleware para interpretar o corpo da requisição
-app.use(express.json());
 app.use(cors());
+app.use(express.json()); 
 
-// Usando as rotas
-app.use('/api', missaoRoutes);
-app.use('/api', usuarioRoutes);
+// Use as rotas de missões com o prefixo '/api'
+app.use("/api", missoesRoutes);
 
-// Rota para verificar se o servidor está funcionando
-app.get('/', (req, res) => {
-  res.send('API está funcionando!');
-});
-
-// Iniciando o servidor
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+// Inicia o servidor na porta 3000
+app.listen(3000, () => {
+  console.log("Servidor rodando na porta 3000");
 });
