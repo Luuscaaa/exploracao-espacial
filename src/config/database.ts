@@ -1,3 +1,5 @@
+// Configuração com o banco de dados
+
 import { Pool } from "pg";
 import * as dotenv from "dotenv";
 dotenv.config();
